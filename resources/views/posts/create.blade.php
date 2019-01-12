@@ -17,7 +17,7 @@
         <div class="col-md-8 offset-md-2">
             <h1>Create New Post</h1>
             <hr>
-                 <form action="{{ route('posts.store') }}" method="post" data-parsley-validate>
+                 <form action="{{ route('posts.store') }}" method="post" data-parsley-validate enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label name="title">Title:</label>
@@ -45,6 +45,11 @@
                                 <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                             @endforeach
                         </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label name="image">Image:</label>
+                        <input type="file" name="image" class="form-control" style="padding-bottom:35px;">
                     </div>
 
                      <div class="form-group">
