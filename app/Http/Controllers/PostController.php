@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Image;
+use Storage;
 use App\Tag;
 use Session;
 use App\Post;
@@ -58,7 +59,8 @@ class PostController extends Controller
             'title'       => 'required|max:255',
             'slug'        => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
             'category_id' => 'required|integer',
-            'body'        => 'required'
+            'body'        => 'required',
+            'image'       => 'sometimes|image',
         ));
 
         $post = new Post;
@@ -117,13 +119,6 @@ class PostController extends Controller
 
         $tags = Tag::all();
 
-        // $cats = array();
-
-        // foreach ($categories as $category) {
-
-        //     $cats[$category->id] = $category->name;
-        // }
-        //->withPost($post)->withCategories($categories)->withTags($tags)
         return view('posts.edit' , compact('post' , 'categories' , 'tags'));
     }
 
@@ -142,9 +137,10 @@ class PostController extends Controller
 
             $request->validate( array(
 
-                'title' => 'required|max:255',
+                'title'       => 'required|max:255',
                 'category_id' => 'required|integer',
-                'body' => 'required'
+                'body'        => 'required',
+                'image'       => 'image',
             ));
 
         }
@@ -153,10 +149,11 @@ class PostController extends Controller
 
             $request->validate(array(
 
-            'title' => 'required|max:255',
-            'slug' => 'required|min:5|max:255|unique:posts,slug',
+            'title'       => 'required|max:255',
+            'slug'        => 'required|min:5|max:255|unique:posts,slug',
             'category_id' => 'required|integer',
-            'body' => 'required'
+            'body'        => 'required',
+            'image'       => 'image',
         ));
 
         }
@@ -166,6 +163,23 @@ class PostController extends Controller
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
         $post->body = Purifier::clean($request->body);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+
+            $location = public_path('images/' . $filename);
+
+            Image::make($image)->resize(800 , 600)->save($location);
+
+            $oldFilename = $post->image;
+
+            $post->image = $filename;
+
+            Storage::delete($oldFilename);
+        }
+
 
         $post->save();
 
@@ -187,6 +201,8 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $post->tags()->detach();
+
+        Storage::delete($post->image);
 
         $post->delete();
 

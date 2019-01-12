@@ -12,7 +12,7 @@
 
     <h2>Edit Post</h2>
 
-    <form action="{{ URL::route('posts.update', [$post->id]) }}" method="POST" data-parsley-validate>
+    <form action="{{ URL::route('posts.update', [$post->id]) }}" method="POST" data-parsley-validate enctype="multipart/form-data">
         @csrf
         {{ method_field('put') }}
         <div class="row">
@@ -37,13 +37,18 @@
                 </div>
 
                 <div class="form-group">
-                        <label name="tags">Tags:</label>
-                        <select name="tags[]" class="form-control" id="tags" multiple="multiple">
-                            @foreach ($tags as $tag)
-                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    <label name="tags">Tags:</label>
+                    <select name="tags[]" class="form-control" id="tags" multiple="multiple">
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label name="image">Image:</label>
+                    <input type="file" name="image" class="form-control" style="padding-bottom:35px;">
+                </div>
 
                 <div class="form-group">
                     <label name="body">Post Body:</label>

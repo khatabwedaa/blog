@@ -11,6 +11,7 @@
     <div class="row">
         <div class="col-md-8">
             <h1>{{ $post->title }}</h1>
+            <img src="{{ asset('images/' . $post->image) }}" alt="This is photo" class="img-fluid" height="500" width="800" style="border-radius:5px">
             <p>{!! $post->body !!}</p>
 
             <hr>
