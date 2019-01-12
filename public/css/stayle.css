@@ -1,0 +1,59 @@
+/* .btn-st-bt{
+
+    margin-right: 20px;
+} */
+
+/* body{
+
+    background-color: #343a40;
+}
+  */
+/* .clock
+{ */
+    /* background-color:#e9ecef ; */
+    /* background-image: url('../daniel-apodaca-724303-unsplash.jpg');
+    padding-left: 40ch;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0%;
+    font-size: 17px;
+    color: aliceblue; */
+
+
+
+/* } */
+.comment{
+    margin-top: 25px;
+}
+.comment-num{
+    margin-top: 30px;
+    font-size: 20px;
+    margin-bottom: 25px;
+    /* color: rgb(6, 66, 63); */
+}
+.auther-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: left;
+}
+.auther-name{
+    float: left;
+    margin-left: 15px;
+    /* font-size: 12px; */
+}
+.auther-time{
+    font-size:11px;
+    font-style: italic;
+    color: #aaa;
+}
+.comment-content{
+    margin-bottom: 25px;
+    margin-left: 60px;
+    font-size: 16px;
+    line-height: 1.3em;
+    clear: both;
+}
+.nameUpper{
+    text-transform: capitalize;
+}
