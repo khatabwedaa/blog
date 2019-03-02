@@ -10,7 +10,8 @@
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1>{{ $post->title }}</h1>
+            <span class="badge badge-pill badge-info">Post --</span> <h3 class="badge badge-pill badge-secondary">{{ $post->title }}</h3>
+            <hr>
             <img src="{{ asset('images/' . $post->image) }}" class="img-fluid" height="500" width="800" style="border-radius:5px">
             <p>{!! $post->body !!}</p>
 <hr>

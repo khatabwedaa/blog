@@ -77,7 +77,7 @@ class PostController extends Controller
 
             $location = public_path('images/' . $filename);
 
-            Image::make($image)->resize(800 , 600)->save($location);
+            Image::make($image)->save($location);
 
             $post->image = $filename;
         }
@@ -171,7 +171,7 @@ class PostController extends Controller
 
             $location = public_path('images/' . $filename);
 
-            Image::make($image)->resize(800 , 600)->save($location);
+            Image::make($image)->save($location);
 
             $oldFilename = $post->image;
 
