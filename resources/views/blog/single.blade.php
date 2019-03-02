@@ -10,11 +10,11 @@
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <span class="badge badge-pill badge-info">Post --</span> <h3 class="badge badge-pill badge-secondary">{{ $post->title }}</h3>
-            <hr>
             <img src="{{ asset('images/' . $post->image) }}" class="img-fluid" height="500" width="800" style="border-radius:5px">
-            <p>{!! $post->body !!}</p>
-<hr>
+            <hr>
+            <span class="badge badge-pill badge-info">Post --</span> <h3 class="badge badge-pill badge-secondary">{{ $post->title }}</h3>
+            <p class="text-style">{!! $post->body !!}</p>
+            <hr>
             <div class="tag">
                     <span class="badge badge-pill badge-info">Tags --</span>
                 @foreach ($post->tags as $tag)
