@@ -22,7 +22,7 @@ class TagController extends Controller
     {
         $tags = Tag::all();
 
-        return view('tags.index' , compact('tags'));
+        return view('tags.index', compact('tags'));
     }
 
 
@@ -42,7 +42,7 @@ class TagController extends Controller
 
         $tag->save();
 
-        Session::flash('Succcess' , 'The Tag Was Created!');
+        Session::flash('Succcess', 'The Tag Was Created!');
 
         return redirect()->route('tags.index');
     }
@@ -57,7 +57,7 @@ class TagController extends Controller
     {
         $tag = Tag::findOrFail($id);
 
-        return view('tags.show' , compact('tag'));
+        return view('tags.show', compact('tag'));
     }
 
     /**
@@ -70,7 +70,7 @@ class TagController extends Controller
     {
         $tag = Tag::findOrFail($id);
 
-        return view('tags.edit' , compact('tag'));
+        return view('tags.edit', compact('tag'));
     }
 
     /**
@@ -90,9 +90,9 @@ class TagController extends Controller
 
         $tag->save();
 
-        Session::flash('Succcess' , 'The Tag Was Updated!');
+        Session::flash('Succcess', 'The Tag Was Updated!');
 
-        return redirect()->route('tags.show' , $tag->id);
+        return redirect()->route('tags.show', $tag->id);
     }
 
     /**
@@ -109,7 +109,7 @@ class TagController extends Controller
 
         $tag->delete();
 
-        Session::flash('Succcess' , 'The Tag was successfully Deleted!');
+        Session::flash('Succcess', 'The Tag was successfully Deleted!');
 
         return redirect()->route('tags.index');
     }

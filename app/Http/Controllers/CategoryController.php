@@ -23,7 +23,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
-        return view('categories.index' , compact('categories'));
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -41,7 +41,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
 
-        Session::flash('Succcess' , 'The Category has been created!');
+        Session::flash('Succcess', 'The Category has been created!');
 
         return redirect()->route('categories.index');
     }
@@ -52,7 +52,7 @@ class CategoryController extends Controller
 
         $categories = Category::all();
 
-        return view('categories.show' , compact('category' , 'categories'));
+        return view('categories.show', compact('category', 'categories'));
     }
 
     /**
@@ -85,7 +85,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        Session::flash('Succcess' , 'The Category Was Updated!');
+        Session::flash('Succcess', 'The Category Was Updated!');
 
         return redirect()->route('categories.index');
     }
@@ -104,7 +104,7 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        Session::flash('Succcess' , 'The post was successfully Deleted!');
+        Session::flash('Succcess', 'The post was successfully Deleted!');
 
         return redirect()->route('categories.index');
     }

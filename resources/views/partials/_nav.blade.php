@@ -27,17 +27,10 @@
       </div>
     @guest
     <div class=" my-2 my-lg-0">
-        <ul class="navbar-nav mr-auto" >
-            <li class="nav-item dropdown" style="padding-right: 39px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    REG OR LOG
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/register">Register</a>
-                <a class="dropdown-item" href="/login">Login</a>
-            </div>
-
-        </ul>
+        <div class="navbar-nav mr-auto" >
+                {{-- <a class="dropdown-item" href="/register">Register</a> --}}
+                <a class="nav-link active" href="/login">Login</a>
+        </div>
     </div>
     @else
         <div class=" my-2 my-lg-0">
