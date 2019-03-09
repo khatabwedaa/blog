@@ -14,12 +14,6 @@ class CommentsController extends Controller
         $this->middleware('auth')->except('store');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request, $post_id)
     {
         $request->validate(array(
@@ -45,12 +39,6 @@ class CommentsController extends Controller
         return redirect()->route('blog.single', $post->slug);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $comment = Comment::findOrFail($id);
@@ -58,21 +46,13 @@ class CommentsController extends Controller
         return view('comments.edit', compact('comment'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        $comment = Comment::find($id);
+        $comment = Comment::findOrFail($id);
 
-        $request->validate(array('comment' => 'required'));
+        request()->validate(array('comment' => 'required'));
 
-        $comment->comment = $request->comment;
-        $comment->save();
+        $comment->update(['comment' => request('comment')]);
 
         Session::flash('Succcess', 'Comment Updated');
 
@@ -86,15 +66,9 @@ class CommentsController extends Controller
         return view('comments.delete', compact('comment')) ;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        $comment = Comment::find($id);
+        $comment = Comment::findOrFail($id);
 
         $post_id = $comment->post->id;
 

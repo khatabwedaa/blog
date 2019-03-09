@@ -14,11 +14,6 @@ class CategoryController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $categories = Category::all();
@@ -26,20 +21,11 @@ class CategoryController extends Controller
         return view('categories.index', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store()
     {
-        $request->validate(array('name' => 'required|max:255',));
+        request()->validate(array('name' => 'required|max:255',));
 
-        $category = new Category;
-
-        $category->name = $request->name;
-        $category->save();
+        Category::create(['name' => request('name')]);
 
         Session::flash('Succcess', 'The Category has been created!');
 
@@ -50,17 +36,9 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
-        $categories = Category::all();
-
-        return view('categories.show', compact('category', 'categories'));
+        return view('categories.show', compact('category'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $category = Category::findOrFail($id);
@@ -68,34 +46,19 @@ class CategoryController extends Controller
         return view('categories.edit', compact('category'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
 
-        $request->validate(array('name' => 'required|max:255'));
+        request()->validate(array('name' => 'required|max:255'));
 
-        $category->name = $request->name;
-
-        $category->save();
+        $category->Category::update(['name' => request('name')]);
 
         Session::flash('Succcess', 'The Category Was Updated!');
 
         return redirect()->route('categories.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $category = Category::find($id);
