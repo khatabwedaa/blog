@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Session;
 use App\Post;
 use App\Comment;
-use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
@@ -14,9 +13,9 @@ class CommentsController extends Controller
         $this->middleware('auth')->except('store');
     }
 
-    public function store(Request $request, $post_id)
+    public function store($post_id)
     {
-        $request->validate(array(
+        request()->validate(array(
             'name'    => 'required|max:255',
             'email'   => 'required|email|max:255',
             'comment' => 'required|min:5|max:2000'
@@ -26,10 +25,9 @@ class CommentsController extends Controller
 
         $post = Post::find($post_id);
 
-        $comment->name     =  $request->name;
-        $comment->email    =  $request->email;
-        $comment->comment   =  $request->comment;
-        $comment->approved =  true;
+        $comment->name     = request()->name;
+        $comment->email    = request()->email;
+        $comment->comment   = request()->comment;
         $comment->post()->associate($post);
 
         $comment->save();
