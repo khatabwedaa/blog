@@ -1,1 +1,1 @@
-#Laravel Blog Full System 
+#Laravel Blog System 
