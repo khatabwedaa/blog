@@ -42,7 +42,7 @@ class PagesControllers extends Controller
         );
         Mail::send('email.contact', $data, function ($message) use ($data) {
             $message->from($data['email']);
-            $message->to('9477b8e929-45eaf1@inbox.mailtrap.io');
+            $message->to('test@inbox.mailtrap.io');
             $message->subject($data['subject']);
         });
 
