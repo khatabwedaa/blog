@@ -1,1 +1,1 @@
-### Laravel Blog Full System 
+# simple blog system 
