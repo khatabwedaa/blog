@@ -29,7 +29,7 @@
     <div class=" my-2 my-lg-0">
         <div class="navbar-nav mr-auto" >
                 {{-- <a class="dropdown-item" href="/register">Register</a> --}}
-                <a class="nav-link active" href="/login">Login</a>
+                <a class="nav-link" href="/en/login">{{ __('Login') }}</a>
         </div>
     </div>
     @else

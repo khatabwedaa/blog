@@ -1,12 +1,13 @@
 <?php
 
-Route::prefix('{locale}')->group(function ($locale) {
+Route::prefix('{locale}')->group(function () {
     Route::get('/test-locale', function () {
         return __('auth.failed');
     });
+    
+    Auth::routes();
 });
 
-Auth::routes();
 
 /*
 / +++++++++++++ resource Routes +++++++++++++:
