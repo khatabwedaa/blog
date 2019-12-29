@@ -78,6 +78,11 @@ return [
     |
     */
 
+    'locales' => [
+        'en',
+        'ar',
+    ],
+
     'locale' => 'en',
 
     /*
