@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Tag;
 use Session;
 use App\Post;
-use Purifier;
 use App\Category;
 
 class PostController extends Controller
@@ -41,14 +40,12 @@ class PostController extends Controller
             'image'       => 'sometimes|image'
         ));
 
-        $image = Post::imageSave(request()->file('image'));
-
         $post = Post::create([
             'title' => request('title'),
             'slug' => request('slug'),
             'category_id' => request('category_id'),
-            'body' => Purifier::clean(request('body')),
-            'image' => $image
+            'body' => request('body'),
+            'image' => ''
         ]);
 
         $post->tags()->sync(request('tags'), false);

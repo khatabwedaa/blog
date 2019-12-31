@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Image;
 use Storage;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,17 +22,6 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany('App\Comment');
-    }
-
-    public static function imageSave($image)
-    {
-        $filename = time() . '.' . $image->getClientOriginalExtension();
-
-        $location = public_path('images/' . $filename);
-
-        Image::make($image)->save($location);
-
-        return $filename;
     }
 
     public static function imageUpdate($oldImage, $image)
