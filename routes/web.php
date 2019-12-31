@@ -29,8 +29,7 @@ Route::get('blog/{slug}', 'Blog\BlogController@show')->name('blog.show');
 // // --------------------------------------------------
 // Route::post('contact', 'PagesControllers@postContact')->name('contact.send');
 // //------------------------------------------------------
-// //----------------------------------------------------------------
-// Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
+
 // //-------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------
 
@@ -40,7 +39,4 @@ Route::get('blog/{slug}', 'Blog\BlogController@show')->name('blog.show');
 // //---------------------------------------------------------
 // Route::resource('categories', 'CategoryController')->except('create');
 // //--------------------------------------------------------------------
-// Route::resource('comments', 'CommentsController')->only('edit', 'update', 'destroy');
-// //-----------------------------------------------------------------------------------
-// Route::get('comments/{id}/delete', 'CommentsController@delete')->name('comments.delete');
 //---------------------------------------------------------------------------------------
