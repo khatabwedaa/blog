@@ -46,10 +46,10 @@
         </div>
     </div>
 
-    <div class="row" style="margin-top:30px;">
+    {{-- <div class="row" style="margin-top:30px;">
         <div class="col-md-8 offset-md-2">
             <hr>
-            <div id="comment-form">  {{-- comment Form start --}}
+            <div id="comment-form">  
                 <form action="{{ route('comments.store' , $post->id) }}" method="post">
                     @csrf
                     <div class="row">
@@ -72,6 +72,6 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 @endsection
