@@ -28,8 +28,7 @@
     @guest
     <div class=" my-2 my-lg-0">
         <div class="navbar-nav mr-auto" >
-                {{-- <a class="dropdown-item" href="/register">Register</a> --}}
-                <a class="nav-link" href="/en/login">{{ __('Login') }}</a>
+            <a class="nav-link" href="/login">{{ __('Login') }}</a>
         </div>
     </div>
     @else
@@ -44,7 +43,7 @@
                     <a class="dropdown-item" href="/posts/create">New Post</a>
                     <a class="dropdown-item" href="/categories">Categories</a>
                     <a class="dropdown-item" href="/tags">Tags</a>
-                    <a class="dropdown-item" href="en/logout"
+                    <a class="dropdown-item" href="/logout"
                     onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}

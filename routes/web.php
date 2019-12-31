@@ -5,6 +5,7 @@ Route::prefix('{locale}')->middleware('setLanguage')->group(function () {
         return __('auth.failed');
     });
 });
+
 Auth::routes();
 
 // Dashbord

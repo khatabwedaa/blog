@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-       @include('partials._head')
+       @include('layouts.partials._head')
   </head>
   <body>
+     @include('layouts.partials._nav')
 
-       @include('partials._nav')
-
-     <br>
-
-     <div class="container">
-        @include('partials._messages')
+     <div class="container py-4">
+        @include('layouts.partials._messages')
 
         @yield('content')
-
      </div>
 
-      <br><br><br><br>
+     @include('layouts.partials._footer')
 
-       @include('partials._footer')
+     @include('layouts.partials._script')
 
-       @include('partials._script')
-
-       @yield('scripts')
-
+     @yield('scripts')
   </body>
 </html>
