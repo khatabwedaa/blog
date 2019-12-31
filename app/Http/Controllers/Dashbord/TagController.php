@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashbord;
 
 use App\Tag;
 use Session;
+use App\Http\Controllers\Controller;
 
 class TagController extends Controller
 {

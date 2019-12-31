@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Blog;
 
 use Session;
 use App\Post;
 use App\Comment;
+use App\Http\Controllers\Controller;
 
 class CommentsController extends Controller
 {

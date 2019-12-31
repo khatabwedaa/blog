@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashbord;
 
 use App\Tag;
 use Session;
 use App\Post;
 use App\Category;
+use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {

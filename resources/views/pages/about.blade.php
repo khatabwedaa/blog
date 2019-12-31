@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.master')
 
 @section('title' , '| About')
 
@@ -10,5 +10,4 @@
 
             </div>
         </div>
-
 @endsection

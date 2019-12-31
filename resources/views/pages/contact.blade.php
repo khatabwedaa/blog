@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.master')
 
 @section('title' , '| Contact')
 
@@ -27,7 +27,4 @@
                  </form>
             </div>
         </div>
-
-
 @endsection
-

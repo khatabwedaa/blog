@@ -17,7 +17,7 @@
             <h5>Published: {{ date('M j, Y h:ia', strtotime($post->created_at)) }}</h5>
             <p>{{ substr(strip_tags($post->body) , 0 ,300) }}{{ strlen(strip_tags($post->body)) > 50 ? "..." : ""}}</p>
             <p>Posted In : {{ isset($post->category->name)  == null  ? "N_A" : $post->category->name }}</p>
-            <a href="{{ route('blog.single', $post->slug) }}" class="btn btn-primary">Read More</a>
+            <a href="{{ route('blog.show', $post->slug) }}" class="btn btn-primary">Read More</a>
             <hr>
 
         </div>
