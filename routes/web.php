@@ -12,9 +12,9 @@ Route::get('/posts/create', 'PostController@create');
 Route::post('/posts', 'PostController@store')->name('posts.store');
 
 
-// Guest
-Route::get('blog', 'BlogController@getIndex')->name('blog.index');
-Route::get('blog/{slug}', 'BlogController@getSingle')->name('blog.single');
+// Blog
+Route::get('blog', 'BlogController@index')->name('blog.index');
+Route::get('blog/{slug}', 'BlogController@show')->name('blog.single');
 
 
 

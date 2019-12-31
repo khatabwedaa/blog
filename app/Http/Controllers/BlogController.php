@@ -6,17 +6,17 @@ use App\Post;
 
 class BlogController extends Controller
 {
-    public function getIndex()
+    public function index()
     {
         $posts = Post::orderBy('id', 'desc')->paginate(10);
 
         return view('blog.index', compact('posts'));
     }
 
-    public function getSingle($slug)
+    public function show($slug)
     {
         $post = Post::where('slug', '=', $slug)->first();
 
-        return view('blog.single', compact('post'));
+        return view('blog.show', compact('post'));
     }
 }

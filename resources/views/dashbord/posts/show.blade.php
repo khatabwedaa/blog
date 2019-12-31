@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.master')
 
 @section('title', '| View Post')
 
