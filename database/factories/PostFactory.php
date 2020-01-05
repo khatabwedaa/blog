@@ -11,5 +11,6 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'slug' => $slug,
         'category_id' => 1,
         'body' => $faker->text(),
+        'user_id' => factory(App\Post::class)->create(),
     ];
 });

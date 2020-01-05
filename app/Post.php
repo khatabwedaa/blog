@@ -9,6 +9,10 @@ class Post extends Model
 {
     protected $guarded = [];
 
+    public function creator()
+    {
+        return $this->belongsTo(User::class , 'user_id');
+    }
     public function category()
     {
         return $this->belongsTo('App\Category');
