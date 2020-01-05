@@ -3,7 +3,7 @@
   <head>
        @include('layouts.partials._head')
   </head>
-  <body>
+  <body {{ app()->getLocale() == 'ar' ? 'dir="rtl"' : ''}}>
      @include('layouts.partials._nav')
 
      <div class="container py-4">

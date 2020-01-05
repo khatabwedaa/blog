@@ -2,7 +2,7 @@
 
 Route::prefix('{locale}')->middleware('setLanguage')->group(function () {
     Route::get('/test-locale', function () {
-        return __('auth.failed');
+        return view('test');
     });
 });
 
