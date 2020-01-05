@@ -9,8 +9,8 @@ $factory->define(App\Post::class, function (Faker $faker) {
     return [
         'title' => $title,
         'slug' => $slug,
-        'category_id' => 1,
         'body' => $faker->text(),
-        'user_id' => factory(App\Post::class)->create(),
+        'category_id' => 1,
+        'user_id' => factory('App\User')->create()->id,
     ];
 });
